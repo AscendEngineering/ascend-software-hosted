@@ -1,1 +1,0 @@
-deb [signed-by=/etc/apt/trusted.gpg.d/ascend-oa.gpg] https://AscendEngineering.github.io/ascend-oa ./
