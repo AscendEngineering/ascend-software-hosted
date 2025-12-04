@@ -26,8 +26,8 @@ gpg --yes --default-key "$EMAIL" -abs -o Release.gpg Release
 gpg --yes --default-key "$EMAIL" --clearsign -o InRelease Release
 
 # echo "Pushing..."
-# git add .
-# git commit -m "add fixes"
-# git push -u origin main
+git add .
+git commit -m "add fixes"
+git push -u origin main
 
 echo "Done."
