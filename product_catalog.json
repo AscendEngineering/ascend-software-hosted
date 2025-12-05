@@ -1,0 +1,11 @@
+{
+    "products": {
+        "31402": {
+            "product_name": "Ascend Collision Overwatch",
+            "description": "Service that runs alongside mission mode; if an obstacle is detected, the drone stops and holds position until manually flown to safety by an operator.",
+            "package_name": "ascend-co",
+            "github_repo": "ascend-software-hosted",
+            "apt_host_url": "https://ascendengineering.github.io/ascend-software-hosted/"
+        }
+    }
+}
