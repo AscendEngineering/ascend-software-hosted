@@ -8,48 +8,25 @@
     body {
       background-color: #121212;
       color: #f0f0f0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
       margin: 0;
-      padding: 0;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 50px auto;
-      padding: 20px;
+      padding: 40px 20px;
     }
 
     h1 {
-      color: #00bcd4;
       font-size: 3em;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      color: #ff9800;
-      font-size: 1.8em;
-      margin-top: 30px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      margin-bottom: 20px;
-    }
-
-    a {
+      margin-bottom: 40px;
       color: #00bcd4;
-      text-decoration: none;
-      font-weight: bold;
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .installer-link {
+    a.installer {
       display: inline-block;
-      margin-top: 20px;
+      margin-bottom: 40px;
       padding: 12px 20px;
       background-color: #00bcd4;
       color: #121212;
@@ -59,35 +36,39 @@
       transition: background-color 0.3s;
     }
 
-    .installer-link:hover {
+    a.installer:hover {
       background-color: #0097a7;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      color: #ff9800;
+    }
+
+    ul {
+      max-width: 600px;
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Ascend Engineering</h1>
-    <p>Building the Future of<br><strong>UAV ENGINEERING</strong></p>
-    <p>At Ascend Engineering, we leverage a robust software ecosystem to develop advanced UAV solutions, ensuring seamless integration, precision control, and mission success.</p>
+  <h1>Ascend Engineering</h1>
 
-    <h2>VOXL 2</h2>
-    <p>Harnessing ModalAI's high-performance companion computer, we enable real-time AI processing, sensor fusion, and autonomous decision-making.</p>
+  <a href="AscendInstaller.exe" class="installer">Link to our software installer</a>
 
-    <h2>PX4</h2>
-    <p>Customizing PX4-based autopilot systems for enhanced stability, precise maneuverability, and adaptive flight control in dynamic environments.</p>
-
-    <h2>QGroundControl (QGC)</h2>
-    <p>Implementing QGC for intuitive UAV mission planning, real-time telemetry, and remote system management.</p>
-
-    <h2>ModalAI</h2>
-    <p>Utilizing ModalAI’s cutting-edge software and AI tools to push the boundaries of UAV autonomy and edge computing.</p>
-
-    <h2>Doodle Radio</h2>
-    <p>Integrating Doodle Labs’ advanced communication systems for secure, long-range, and high-bandwidth UAV operations.</p>
-
-    <p>Our software-driven expertise ensures your UAV platform is built on industry-leading technology for next-generation performance.</p>
-
-    <a href="AscendInstaller.exe" class="installer-link">Here is our software package installer</a>
-  </div>
+  <h2>How to use:</h2>
+  <ul>
+    <li>The installer runs on Windows, so double click the .exe file</li>
+    <li>Click <strong>Load Activation License</strong>, and select the license file emailed to you</li>
+    <li>Enter the IP address of the drone (Ensure that your drone and the installer PC are on the same network, else it will not install)</li>
+    <li>Enter the SSH access password, this will be used to install the software only</li>
+    <li>Click <strong>Retrieve Drone Info</strong></li>
+    <li>Then click <strong>Install</strong>, and it should just work</li>
+  </ul>
 </body>
 </html>
