@@ -1,0 +1,1 @@
+deb [signed-by=/etc/apt/trusted.gpg.d/ascend-software-hosted.gpg] https://AscendEngineering.github.io/ascend-software-hosted ./
