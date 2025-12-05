@@ -12,10 +12,10 @@ The `publish_deb.sh` script automates publishing the Debian package to a Git-hos
 To install the service:
 ```bash
 # Import the GPG key
-curl -s --compressed "https://AscendEngineering.github.io/ascend-co-hosted/KEY.gpg" | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/ascend-co.gpg >/dev/null
+curl -s --compressed "https://AscendEngineering.github.io/ascend-software-hosted/KEY.gpg" | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/ascend-software-hosted.gpg >/dev/null
 
 # Add the APT source list
-sudo curl -s --compressed -o /etc/apt/sources.list.d/ascend-co-hosted.list "https://AscendEngineering.github.io/ascend-co-hosted/ascend-co.list"
+sudo curl -s --compressed -o /etc/apt/sources.list.d/ascend-software-hosted.list "https://AscendEngineering.github.io/ascend-software-hosted/ascend-software-hosted.list"
 
 # Update
 sudo apt update
