@@ -42,9 +42,9 @@ To uninstall the service completely:
 ```bash
 sudo apt remove ascend-co
 
-sudo rm /etc/apt/sources.list.d/ascend-co.list
+sudo rm /etc/apt/sources.list.d/ascend-software-hosted.list
 
-sudo rm /etc/apt/trusted.gpg.d/ascend-co.gpg
+sudo rm /etc/apt/trusted.gpg.d/ascend-software-hosted.gpg
 ```
 
 
