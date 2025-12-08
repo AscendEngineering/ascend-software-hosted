@@ -3,73 +3,346 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ascend Engineering</title>
+    <title>Ascend Engineering - Drone Software Solutions</title>
     <style>
-      body {
-        background-color: #121212;
-        color: #f0f0f0;
-        font-family: Arial, Helvetica, sans-serif;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        min-height: 100vh;
+      * {
         margin: 0;
-        padding: 40px 20px;
+        padding: 0;
+        box-sizing: border-box;
       }
 
-      h1 {
-        font-size: 3em;
-        margin-bottom: 40px;
+      body {
+        background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+        color: #e8eaf6;
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        line-height: 1.6;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* Animated background grid */
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+          linear-gradient(rgba(0, 188, 212, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 188, 212, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .container {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        z-index: 1;
+      }
+
+      /* Header */
+      header {
+        padding: 60px 0 40px;
+        text-align: center;
+      }
+
+      .logo {
+        font-size: 2.8em;
+        font-weight: 700;
+        background: linear-gradient(135deg, #00bcd4 0%, #00e5ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 10px;
+        letter-spacing: -1px;
+      }
+
+      .tagline {
+        color: #9fa8da;
+        font-size: 1.1em;
+        font-weight: 300;
+        margin-bottom: 50px;
+      }
+
+      /* Hero Section */
+      .hero {
+        text-align: center;
+        padding: 40px 0 60px;
+      }
+
+      .cta-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 18px 40px;
+        background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+        color: #ffffff;
+        font-size: 1.1em;
+        font-weight: 600;
+        border: none;
+        border-radius: 12px;
+        text-decoration: none;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 8px 24px rgba(0, 188, 212, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s;
+      }
+
+      .cta-button:hover::before {
+        left: 100%;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 32px rgba(0, 188, 212, 0.4);
+      }
+
+      .download-icon {
+        width: 20px;
+        height: 20px;
+      }
+
+      /* Installation Guide */
+      .guide-section {
+        background: rgba(26, 31, 58, 0.6);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 188, 212, 0.1);
+        border-radius: 16px;
+        padding: 50px;
+        margin: 60px 0;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+
+      .guide-content {
+        width: 100%;
+      }
+
+      .guide-image {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(0, 188, 212, 0.2);
+      }
+
+      .guide-title {
+        font-size: 2em;
+        color: #00bcd4;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .guide-title::before {
+        content: '→';
+        font-size: 1.2em;
+      }
+
+      .steps {
+        list-style: none;
+        counter-reset: step-counter;
+      }
+
+      .step {
+        counter-increment: step-counter;
+        position: relative;
+        padding: 12px 0 12px 60px;
+        margin-bottom: 12px;
+        border-left: 2px solid rgba(0, 188, 212, 0.2);
+        transition: all 0.3s ease;
+        line-height: 1.5;
+      }
+
+      .step:hover {
+        border-left-color: rgba(0, 188, 212, 0.6);
+        padding-left: 70px;
+      }
+
+      .step::before {
+        content: counter(step-counter);
+        position: absolute;
+        left: -20px;
+        top: 12px;
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+        color: #ffffff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1em;
+        box-shadow: 0 4px 12px rgba(0, 188, 212, 0.4);
+      }
+
+      .step strong {
+        color: #00e5ff;
+        font-weight: 600;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 60px 0 40px;
+        color: #7986cb;
+        font-size: 0.95em;
+      }
+
+      .footer-links {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+
+      .footer-link {
+        color: #9fa8da;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-link:hover {
         color: #00bcd4;
       }
 
-      a.installer {
-        display: inline-block;
-        margin-bottom: 40px;
-        padding: 12px 20px;
-        background-color: #00bcd4;
-        color: #121212;
-        font-weight: bold;
-        border-radius: 6px;
-        text-decoration: none;
-        transition: background-color 0.3s;
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .logo {
+          font-size: 2em;
+        }
+
+        .guide-section {
+          padding: 30px 20px;
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .guide-image {
+          order: -1;
+        }
+
+        .guide-title {
+          font-size: 1.5em;
+        }
+
+        .step {
+          padding-left: 50px;
+        }
+
+        .step:hover {
+          padding-left: 55px;
+        }
+
+        .cta-button {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .footer-links {
+          flex-direction: column;
+          gap: 15px;
+        }
       }
 
-      a.installer:hover {
-        background-color: #0097a7;
+      /* Subtle animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
-      h2 {
-        margin-bottom: 10px;
-        color: #ff9800;
+      .container > * {
+        animation: fadeInUp 0.8s ease-out backwards;
       }
 
-      ul {
-        max-width: 600px;
-        text-align: left;
-        padding-left: 20px;
-      }
-
-      li {
-        margin-bottom: 10px;
-      }
+      .container > *:nth-child(1) { animation-delay: 0.1s; }
+      .container > *:nth-child(2) { animation-delay: 0.2s; }
+      .container > *:nth-child(3) { animation-delay: 0.3s; }
     </style>
   </head>
   
   <body>
-    <h1>Ascend Engineering</h1>
+    <div class="container">
+      <header>
+        <h1 class="logo">Ascend Engineering</h1>
+        <p class="tagline">Professional Drone Software Solutions</p>
+      </header>
 
-    <a href="AscendInstallerWindows.exe" class="installer">Get our installer for Windows</a>
+      <section class="hero">
+        <a href="AscendInstallerWindows.exe" class="cta-button">
+          <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Download Installer for Windows
+        </a>
+      </section>
 
-    <h2>How to use the installer:</h2>
-    <ul>
-      <li>The installer runs on Windows, so double click the .exe file</li>
-      <li>Click <strong>Load Activation License</strong>, and select the license file emailed to you</li>
-      <li>Enter the IP address of the drone (Ensure that your drone and the installer PC are on the same network, else it will not install)</li>
-      <li>Enter the SSH access password, this will be used to install the software only</li>
-      <li>Click <strong>Retrieve Drone Info</strong></li>
-      <li>Then click <strong>Install</strong>, and it should just work</li>
-    </ul>
+      <section class="guide-section">
+        <div class="guide-content">
+          <h2 class="guide-title">Installation Guide</h2>
+          <ol class="steps">
+            <li class="step">
+              Double-click the <strong>AscendInstallerWindows.exe</strong> file to launch the installer
+            </li>
+            <li class="step">
+              Click <strong>Load Activation License</strong> and select the license file that was emailed to you
+            </li>
+            <li class="step">
+              Enter your drone's <strong>IP address</strong> (ensure both your PC and drone are on the same network)
+            </li>
+            <li class="step">
+              Provide the <strong>SSH password</strong> for installation access
+            </li>
+            <li class="step">
+              Click <strong>Retrieve Drone Info</strong> to verify the connection
+            </li>
+            <li class="step">
+              Click <strong>Install</strong> and wait for the process to complete
+            </li>
+          </ol>
+        </div>
+        <div>
+          <img src="imgs/AscendInstaller.png" alt="Ascend Installer Interface" class="guide-image">
+        </div>
+      </section>
+
+      <footer>
+        <p>&copy; Ascend Engineering. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#" class="footer-link">Support</a>
+          <a href="#" class="footer-link">Documentation</a>
+          <a href="#" class="footer-link">Contact</a>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
