@@ -4,10 +4,10 @@ Architecture: arm64
 Maintainer: Apoorv Thapliyal <apoorv@ascendengineer.com>
 Installed-Size: 15948
 Filename: ./ascend-co_1.0.0_arm64.deb
-Size: 11098066
-MD5sum: c018de8fee1a25917e3a8d30df34fe80
-SHA1: e02821cc70ebc1018ad972cff22b1f11967e5977
-SHA256: 4878a3a628ce24dc035335e7b70ff04edbeed9f66c294ca2668ac69e0ff65f19
+Size: 11098076
+MD5sum: 6ffd9ec254106db035465e82f61d394d
+SHA1: 7eac3fd57aed7f9adae38bd4ed1501690d23a241
+SHA256: 923beddbca53fa7487492d665d05eeefca59d5bcef19203d223a6fdd14d19fea
 Homepage: https://github.com/AscendEngineering/ascend-co
 Description: Collision Prevention package for UAVs
 
